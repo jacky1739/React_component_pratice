@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+// import './index.css';
+import "./styles/index.scss"
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const username = 'jacky'
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App username={username} />
   </React.StrictMode>
 );
 
