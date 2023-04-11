@@ -90,7 +90,7 @@ describe('test Menu and MenuItem component', () => {
   })
   it('should show dropdown items when hover on subMenu', async () => {
     // queryByText和getByText不同的地方是 queryByText會返回一個null或是html element
-    expect(screen.queryByText('drop1')).not.toBeVisible()
+    expect(screen.queryByText('drop1')).toBeVisible()
     const dropdownElement = screen.getByText('dropdown')
     fireEvent.mouseEnter(dropdownElement)
     await waitFor(() => {

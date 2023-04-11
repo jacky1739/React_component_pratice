@@ -1,10 +1,16 @@
 import React from 'react'
+// 使用global import的方式 就不用每個元件都import
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 import Button, { ButtonSize, ButtonType } from './component/Button/button'
 import useMousePosition from './hook/useMousePosition'
 import Menu from './component/Menu/menu'
 import MenuItem from './component/Menu/menuItem'
 import SubMenu from './component/Menu/subMenu'
+import Icon from './component/Icon/icon'
+
+library.add(fas)
 
 interface PropsType {
   username: string
