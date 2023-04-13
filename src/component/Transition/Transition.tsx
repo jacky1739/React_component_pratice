@@ -15,7 +15,7 @@ const Transition: React.FC<TransitionProps> = (props) => {
     children,
     classNames,
     animation,
-    wrapper,
+    wrapper, // 因為transition是不會繼承的 所以新增一個節點
     ...restProps
   } = props
   return (
