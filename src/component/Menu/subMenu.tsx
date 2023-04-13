@@ -1,9 +1,10 @@
 import React, { useState ,FunctionComponentElement, useContext } from 'react'
 import classNames from 'classnames'
-import { CSSTransition } from 'react-transition-group'
+// import { CSSTransition } from 'react-transition-group'
 import { MenuContext } from './menu'
 import { MenuItemProps } from './menuItem'
 import Icon from '../Icon/icon'
+import Transition from '../Transition/Transition'
 
 export interface SubMenuProps {
   index?: string
@@ -62,11 +63,11 @@ const SubMenu: React.FC<SubMenuProps> = ({ index, title, children,className }) =
     return (
       // in：從無到有自動添加的類名 timeout：從active到結束的時間 appear：第一次運行也會執行整個動畫過程
       // 使用unmountOnExit: true 裏面包裹的元件, 當in為true或false裡面的元件會被動態的添加到dom節點上
-      <CSSTransition in={menuOpen} timeout={300} classNames="zoom-in-top" appear unmountOnExit>
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
         <ul className={subMenuClasses}>
           {childrenComponent}
         </ul>
-      </CSSTransition>
+      </Transition>
     )
   }
 
