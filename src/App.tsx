@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 // 使用global import的方式 就不用每個元件都import
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
-import Button, { ButtonSize, ButtonType } from './component/Button/button'
+// import Button, { ButtonSize, ButtonType } from './component/Button/button'
 import useMousePosition from './hook/useMousePosition'
 import Menu from './component/Menu/menu'
 import MenuItem from './component/Menu/menuItem'
 import SubMenu from './component/Menu/subMenu'
-import Icon from './component/Icon/icon'
+import Transition from './component/Transition/Transition'
+import Button from './component/Button/button'
 
 library.add(fas)
 
@@ -19,6 +20,8 @@ interface PropsType {
 const App: React.FC<PropsType> = (props) => {
   const { username } = props
   const positions = useMousePosition()
+
+  const [ show, setShow ] = useState(false)
   return (
     <div className="App">
       <p>{username}</p>
@@ -67,12 +70,25 @@ const App: React.FC<PropsType> = (props) => {
             </MenuItem>
           </SubMenu>
         </Menu>
-        <Button disabled>hello</Button>
-        <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>這是按鈕</Button>
-        <Button btnType={ButtonType.Primary} size={ButtonSize.Small}>這是按鈕</Button>
-        <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>這是按鈕</Button>
-        <Button btnType={ButtonType.Default} size={ButtonSize.Small}>這是按鈕</Button>
-        <Button btnType={ButtonType.Link} size={ButtonSize.Small}>這是按鈕</Button>
+        <Button size='lg' onClick={() => { setShow(!show) }}> Toggle </Button>
+        <Transition 
+          in={show}
+          timeout={300}
+          animation="zoom-in-left"
+        >
+          <div>
+            <p>Edit <code>src/App.tsx</code> and save to reload</p>
+            <p>Edit <code>src/App.tsx</code> and save to reload</p>
+            <p>Edit <code>src/App.tsx</code> and save to reload</p>
+            <p>Edit <code>src/App.tsx</code> and save to reload</p>
+            <p>Edit <code>src/App.tsx</code> and save to reload</p>
+            <p>Edit <code>src/App.tsx</code> and save to reload</p>
+            <p>Edit <code>src/App.tsx</code> and save to reload</p>
+          </div>
+        </Transition>
+        <Transition in={show} timeout={300} animation="zoom-in-top" wrapper>
+          <Button btnType="primary" size="lg">A Large Button</Button>
+        </Transition>
         <a
           className="App-link"
           href="https://reactjs.org"
