@@ -30,7 +30,7 @@ type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElemen
 type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement> // React已提供好了A連結全部的props
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps> // Partial 可以把所有的屬性都設置成可選的
 
-const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.FC<ButtonProps> = (props) => {
   const {
     btnType,
     className,
