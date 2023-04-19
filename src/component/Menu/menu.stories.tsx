@@ -6,7 +6,14 @@ import Item from './menuItem'
 const menuMeta: Meta<typeof Menu> = {
   title: '第六章：Menu',
   id: 'Menu',
-  component: Menu
+  component: Menu,
+  tags: ['autodocs'],
+  argTypes: {
+    defaultIndex: {
+      control: 'color',
+      description: 'normal color'
+    }
+  }
 }
 
 export default menuMeta
@@ -52,5 +59,18 @@ export const ClickMenu: Story = {
       </SubMenu>
     </Menu>
   )
+}
+ClickMenu.parameters = {
+  backgrounds: {
+    values: [
+      { name: 'twitter', value: '#00aced' },
+      { name: 'facebook', value: '#3b5998' }
+    ],
+    docs: {
+        description: {
+          component: 'Another description, overriding the comments'
+        },
+      },
+  }
 }
 ClickMenu.storyName = '垂直的 Menu'

@@ -8,6 +8,7 @@ type SelectCallBack = (selectIndex: string) => void
 export interface MenuProps {
   defaultIndex?: string
   className?: string
+  /**菜單的方向 */
   mode?: MenuMode
   style?: React.CSSProperties
   onSelect?: SelectCallBack

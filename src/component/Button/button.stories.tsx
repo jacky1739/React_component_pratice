@@ -55,7 +55,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 const buttonMeta: Meta<typeof Button> = {
   title: '第四章：Button',
-  component: Button
+  component: Button,
+  tags: ['autodocs']
 }
 
 export default buttonMeta
